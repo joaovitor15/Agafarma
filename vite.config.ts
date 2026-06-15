@@ -15,8 +15,8 @@ export default defineConfig({
         name: 'Agafarma',
         short_name: 'Agafarma',
         description: 'Agafarma PWA',
-        theme_color: '#1f2937', 
-        background_color: '#111827',
+        theme_color: '#0066b3', 
+        background_color: '#ffffff',
         display: 'standalone',
         icons: [
           {

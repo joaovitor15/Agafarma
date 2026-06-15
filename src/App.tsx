@@ -20,8 +20,6 @@ export default function App() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('agafarma_dark_mode');
       if (saved) return JSON.parse(saved);
-      // PWA / Mobile default to dark mode
-      if (window.innerWidth < 768) return true;
       return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
     return false;
@@ -932,9 +930,13 @@ export default function App() {
   };
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-    });
+    supabase.auth.getSession()
+      .then(({ data: { session } }) => {
+        setSession(session);
+      })
+      .catch(err => {
+        console.warn('Erro ao carregar sessão inicial do Supabase:', err);
+      });
 
     const {
       data: { subscription },
@@ -1516,11 +1518,12 @@ export default function App() {
           
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2 ml-2 rounded-full hover:bg-[#005291] dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-gray-600 transition-colors"
+            className="p-2 ml-2 rounded-full hover:bg-[#005291] dark:hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-gray-600 transition-colors text-white"
             aria-label="Alternar Modo Escuro"
           >
             {isDarkMode ? <Sun className="w-5 h-5 sm:w-6 sm:h-6" /> : <Moon className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
+
         </div>
       </header>
 
