@@ -1,6 +1,6 @@
-<svg viewBox="-15 -15 130 130" xmlns="http://www.w3.org/2000/svg">
-<path d="M 18.8 68 A 36 36 0 0 1 68 18.8" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" />
-<polygon points="78.4,24.8 59.6,25.5 69.6,8.1" fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" />
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 18.8 68 A 36 36 0 0 1 68 18.8" fill="none" stroke="#0066b3" stroke-width="8" stroke-linecap="round" />
+<polygon points="78.4,24.8 59.6,25.5 69.6,8.1" fill="#0066b3" stroke="#0066b3" stroke-width="2" stroke-linejoin="round" />
 <path d="M 81.2 32 A 36 36 0 0 1 32 81.2" fill="none" stroke="#ff8c00" stroke-width="8" stroke-linecap="round" />
 <polygon points="21.6,75.2 40.4,74.5 30.4,91.9" fill="#ff8c00" stroke="#ff8c00" stroke-width="2" stroke-linejoin="round" />
 <g transform="translate(50, 48.5) scale(0.75) translate(-50, -48.5)">
