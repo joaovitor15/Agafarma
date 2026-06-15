@@ -11,6 +11,7 @@ const isPlaceholder = (val: string) => {
     lower.includes('your_') ||
     lower.includes('placeholder') ||
     lower.includes('example.com') ||
+    lower.includes('djzmljprkyykhuitcqpt') ||
     !val.startsWith('https://')
   );
 };

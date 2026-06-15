@@ -15,15 +15,15 @@ export default defineConfig({
         name: 'Agafarma',
         short_name: 'Agafarma',
         description: 'Agafarma PWA',
-        theme_color: '#0066b3', 
-        background_color: '#ffffff',
+        theme_color: '#1c1b1f', 
+        background_color: '#1c1b1f',
         display: 'standalone',
         icons: [
           {
             src: 'logo.svg',
             sizes: '192x192 512x512',
             type: 'image/svg+xml',
-            purpose: 'any maskable'
+            purpose: 'any'
           }
         ]
       }
