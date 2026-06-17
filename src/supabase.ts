@@ -4,19 +4,19 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 // Validação detalhada para ignorar placeholders ou chaves não configuradas
-const isPlaceholder = (val: string) => {
+const isPlaceholder = (val: string, isUrl: boolean = false) => {
   if (!val) return true;
   const lower = val.toLowerCase();
-  return (
-    lower.includes('your_') ||
-    lower.includes('placeholder') ||
-    lower.includes('example.com') ||
-    lower.includes('djzmljprkyykhuitcqpt') ||
-    !val.startsWith('https://')
-  );
+  if (lower.includes('your_') || lower.includes('placeholder') || lower.includes('example.com')) {
+    return true;
+  }
+  if (isUrl && !val.startsWith('https://')) {
+    return true;
+  }
+  return false;
 };
 
-const isConfigured = !isPlaceholder(supabaseUrl) && !isPlaceholder(supabaseAnonKey);
+const isConfigured = !isPlaceholder(supabaseUrl, true) && !isPlaceholder(supabaseAnonKey, false);
 
 class SupabaseMockBuilder {
   private tableName: string;

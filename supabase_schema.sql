@@ -155,6 +155,16 @@ CREATE POLICY "Usuários podem auto-inserir sua permissão" ON permissoes_usuari
   TO authenticated
   WITH CHECK (email = auth.jwt()->>'email');
 
+DROP POLICY IF EXISTS "Apenas admin pode inserir permissões" ON permissoes_usuarios;
+CREATE POLICY "Apenas admin pode inserir permissões" ON permissoes_usuarios
+  FOR INSERT
+  TO authenticated
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM permissoes_usuarios p WHERE p.email = auth.jwt()->>'email' AND p.is_admin = true
+    )
+  );
+
 DROP POLICY IF EXISTS "Apenas admin pode alterar permissões" ON permissoes_usuarios;
 CREATE POLICY "Apenas admin pode alterar permissões" ON permissoes_usuarios
   FOR UPDATE
