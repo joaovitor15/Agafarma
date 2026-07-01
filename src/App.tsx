@@ -1173,7 +1173,7 @@ export default function App() {
       body { padding: 0; max-width: none; }
     }
     
-    .recibo-container { padding: 20px 40px; height: 13.8cm; box-sizing: border-box; position: relative; }
+    .recibo-container { padding: 20px 40px; height: 13.2cm; box-sizing: border-box; position: relative; overflow: hidden; }
     .linha-corte { border-bottom: 1px dashed #999; width: 100%; margin: 0; }
     
     .titulo { text-align: center; font-size: 18px; font-weight: bold; text-decoration: underline; margin-bottom: 30px; }
